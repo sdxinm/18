@@ -17,11 +17,33 @@
                 "ratio": 1.1
             }
         },
+        {
+            "key": "喜马拉雅",
+            "name": "喜马拉雅",
+            "type": 3,
+            "api": "./py/喜马拉雅.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+    },
                 {
             "key": "py_jianpian",
             "name": "py_jianpian",
             "type": 3,
             "api": "./py/荐片影视.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+    },
+    {
+            "key": "91rb",
+            "name": "91rb",
+            "type": 3,
+            "api": "./py/91rb.py",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
@@ -2501,40 +2523,6 @@
 			}
 		},
 
-      
-        {
-            "key": "csp_xBPQ_香蕉久久热",
-            "name": "🔞香蕉久久热",
-            "type": 3,
-            "api": "csp_xBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 0,
-            "jar": "./18/Yoursmile2.jar",
-            "ext": "./18/香蕉久久热.json"
-        },
-        {
-            "key": "csp_xBPQ_香蕉废柴",
-            "name": "🔞香蕉废柴",
-            "type": 3,
-            "api": "csp_xBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 0,
-            "jar": "./18/Yoursmile2.jar",
-            "ext": "./18/香蕉废柴网.json"
-        },
-        {
-            "key": "csp_xBPQ_香蕉直播",
-            "name": "🔞香蕉直播",
-            "type": 3,
-            "api": "csp_xBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 0,
-            "jar": "./18/Yoursmile2.jar",
-            "ext": "./18/香蕉直播.json"
-        },
  {
             "key": "纤纤影视福利版",
             "name": "纤纤影视H版",
