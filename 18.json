@@ -2501,17 +2501,7 @@
 			}
 		},
 
-        {
-            "key": "csp_xBPQ_香蕉超清",
-            "name": "🔞香蕉超清",
-            "type": 3,
-            "api": "csp_xBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 0,
-            "jar": "./18/Yoursmile2.jar",
-            "ext": "./18/香蕉超清.json"
-        },
+        
         {
             "key": "csp_xBPQ_香蕉国产",
             "name": "🔞香蕉国产",
