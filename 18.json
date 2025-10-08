@@ -18,17 +18,17 @@
             }
         },
         {
-            "key": "喜马拉雅",
-            "name": "喜马拉雅",
+            "key": "y_139fm",
+            "name": "y_139fm",
             "type": 3,
-            "api": "./py/喜马拉雅.py",
+            "api": "./py/y_139fm.py",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
             "filterable": 1,
             "playerType": 2
     },
-                {
+          {
             "key": "py_jianpian",
             "name": "py_jianpian",
             "type": 3,
@@ -39,11 +39,12 @@
             "filterable": 1,
             "playerType": 2
     },
+    
     {
             "key": "91rb",
             "name": "91rb",
             "type": 3,
-            "api": "./py/91rb.py",
+            "api": "./py/91rb (1).py",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
@@ -127,12 +128,7 @@
             "filterable": 1,
             "playerType": 2
     },
-{
-  "api": "https://learnpython.ggff.net/javxx",
-  "key": "javxx",
-  "name": "javxx",
-  "type": 4
-},
+
         {
             "key": "18j",
             "name": "✨Aries|18j✨",
@@ -705,6 +701,55 @@
             }
         },
         {
+            "key": "狼友总站",
+            "name": "狼友总站",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ.jar",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "主页url": "https://xxx.wgd9999.vip/",
+                "数组": "class=\"movie-item&&</a>",
+                "图片": "src=\"&&\"",
+                "标题": "alt=\"&&\"",
+                "副标题": "<h3&&</h3>",
+                "链接": "href=\"&&\"",
+                "简介": "description\" content=\"&&\"",
+                "分类url": "https://xxx.wgd9999.vip/index.php/vod/show/id/{cateId}/page/{catePg}.html",
+                "分类": "一区$1#二区$2#三区$36",
+                "类别": "抖音视频$20#韩国主播$21#网红头条$22#网爆黑料$23#欧美无码$24#AV女优$25#SM调教$26#AV解说$27卡通动漫$34#欧美系列$35#三级伦理$31#AI换脸$32#中文字幕$33#无码专区$28#麻豆传媒$29#制服诱惑$30多人群交$42#美乳巨乳$43#强奸乱伦$44#熟女人妻$39#萝莉少女$40#女同性爱$41#美女主播$37#国产自拍$38"
+                 }
+        },
+        {
+            "key": "初の体验",
+            "name": "初の体验",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ.jar",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "主页url": "https://demo1.11133301.xyz/",
+                "数组": "class=\"aplusexp&&</a>",
+                "图片": "data-original=\"&&\"",
+                "标题": "title=\"&&\"",
+                "副标题": "🐟色即是空，空即是色",
+                "链接": "href=\"&&\"[替换:detail>>play#.html>>/sid/1/nid/1.html]",
+                "简介": "description\" content=\"&&\"",
+                "分类url": "https://demo1.11133301.xyz/index.php/vod/show/by/{by}/id/{cateId}/page/{catePg}.html",
+                "分类": "精品推荐$22#国产情色$23#欧美情色$24#中文字幕$25#成人动漫$26#长腿丝袜$28#日韩伦理$30"
+            },
+            "style": {
+                "type": "rect",
+                "ratio": 1.75
+            }
+        },
+        {
             "key": "av帝国",
             "name": "🔞AV帝国",
             "type": 3,
@@ -786,7 +831,7 @@
         },
 {"key":"csp_XYQHiker_missav","name": "🔞MissAV(XYQHiker)","type": 3,"jar": "./xyq202503缝合.jar","api": "csp_XYQHiker","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://gh-proxy.com/raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XYQHiker/missav.json","style": {"type": "rect","ratio": 1.6}},
         {
-      "key": "py_rou",
+      "key": "rouT3",
       "name": "(翻墙)(18+)Rou(T3)",
       "type": 3,
       "api": "https://d.kstore.dev/download/14756/python/vod_rou.py",
@@ -810,6 +855,20 @@
       "name": "(翻墙)(18+)AiDou(T4)",
       "type": 4,
       "api": "https://py.doube.eu.org/spider?site=AiDou",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.5
+      }
+    },
+    {
+      "key": "🔞MRJav(T4)",
+      "name": "🔞MRJav(T4)",
+      "type": 4,
+      "api": "https://py.doube.eu.org/spider?site=MrJav",
       "searchable": 1,
       "quickSearch": 0,
       "filterable": 0,
