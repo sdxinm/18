@@ -28,6 +28,48 @@
             "filterable": 1,
             "playerType": 2
     },
+    {
+            "key": "喜马拉雅",
+            "name": "喜马拉雅",
+            "type": 3,
+            "searchable": 1,
+            "player Type": 2,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "./py/有声小说.py",
+            "ext": {
+                "proxy": {},
+                "plp": ""
+            }
+        },
+    {
+            "key": "py_javxx",
+            "name": "JAVxx",
+            "type": 3,
+            "searchable": 1,
+            "player Type": 2,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "./py/javxx.py",
+            "ext": {
+                "proxy": {},
+                "plp": ""
+            }
+        },
+        {
+            "key": "eporner",
+            "name": "eporner",
+            "type": 3,
+            "searchable": 1,
+            "player Type": 2,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "./py/epo.py",
+            "ext": {
+                "proxy": {},
+                "plp": ""
+            }
+        },
           {
             "key": "py_jianpian",
             "name": "py_jianpian",

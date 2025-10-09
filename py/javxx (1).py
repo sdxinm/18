@@ -5,7 +5,6 @@ import html
 import json
 import re
 import sys
-import base64
 from base64 import b64decode
 from urllib.parse import unquote, urlparse
 import requests
@@ -187,76 +186,18 @@ class Spider(Spider):
         return {'list': self.getvl(data('.vid-items .item')), 'page': pg}
 
     def playerContent(self, flag, id, vipFlags):
-        # 处理跳转标识，获取初始加密地址
         if id.startswith('_gggb_'):
             data = self.getpq(
-                requests.get(f"{self.host}{id.replace('_gggb_', '')}", headers=self.headers).text)
+                requests.get(f"{self.host}{id.replace('_gggb_', '')}", headers=self.headers, proxies=self.proxies).text)
             id = data('#video-files div').attr('data-url')
-        
-        # 解密初始URL
         url = self.de_url(id)
         parsed_url = urlparse(url)
         durl = parsed_url.scheme + "://" + parsed_url.netloc
-        video_id = parsed_url.path.split('/')[-1]
-        
-        # 生成加密的token
-        tkid = self.encrypt_video_id(video_id)
-        data_url = f"{durl}/stream?token={tkid}"      
-        
-        # 请求视频流数据
-        response = requests.get(data_url, timeout=10)   
-        data = response.json()
-        
-        # 解密媒体数据
-        media = data["result"]["media"]
-        decrypted_media = self.decrypt_media(media)
-        decrypted_data = json.loads(decrypted_media)
-        playeurl = decrypted_data["stream"]
-        
-        # 构建请求头并返回结果
-        headers = {
-            'user-agent': self.headers['user-agent'], 
-            'origin': durl, 
-            'referer': f"{durl}/"
-        }
-        return {'parse': 0, 'url': playeurl, 'header': headers}
-
-    def encrypt_video_id(self, video_id, key=None):
-        """使用指定密钥对视频ID进行XOR加密并Base64编码"""
-        if key is None:
-            key = "kBxSj373GhC18iOc"  # 默认密钥
-        
-        # XOR加密
-        key_bytes = key.encode('utf-8')
-        encrypted_bytes = []
-        
-        for i, char in enumerate(video_id):
-            key_byte = key_bytes[i % len(key_bytes)]
-            encrypted_byte = ord(char) ^ key_byte
-            encrypted_bytes.append(encrypted_byte)
-        
-        # Base64编码
-        encrypted_base64 = base64.b64encode(bytes(encrypted_bytes)).decode('utf-8')
-        return encrypted_base64
-
-    def decrypt_media(self, encrypted_media, key="kBxSj373GhC18iOc"):
-        """使用指定密钥解密媒体数据"""
-        # Base64解码
-        encrypted_bytes = base64.b64decode(encrypted_media)
-        
-        # XOR解密
-        key_bytes = key.encode('utf-8')
-        decrypted_chars = []
-        
-        for i, byte in enumerate(encrypted_bytes):
-            key_byte = key_bytes[i % len(key_bytes)]
-            decrypted_char = byte ^ key_byte
-            decrypted_chars.append(chr(decrypted_char))
-        
-        # 组合成字符串并URL解码
-        decrypted_text = ''.join(decrypted_chars)
-        url_decoded_text = unquote(decrypted_text)
-        return url_decoded_text
+        data = self.getpq(requests.get(url, headers=self.headers, proxies=self.proxies).text)
+        jscode = html.unescape(data('script').eq(-1).html().strip()[4:])
+        result = self.p_qjs(jscode)
+        headers = {'user-agent': self.headers['user-agent'], 'origin': durl, 'referer': f"{durl}/"}
+        return {'parse': 0, 'url': f"{self.plp}{result['stream']}", 'header': headers}
 
     def localProxy(self, param):
         pass
@@ -283,7 +224,7 @@ class Spider(Spider):
 
     def de_url(self, encoded_str):
         decoded = b64decode(encoded_str).decode()
-        key = "G9zhUyphqPWZGWzZ"  # 更新为第一个密钥
+        key = "pa7EQE8BbHrvoFAf"
         result = []
         for i, char in enumerate(decoded):
             key_char = key[i % len(key)]
