@@ -1,204 +1,140 @@
 # -*- coding: utf-8 -*-
-import sys
-import requests
-import json
-import re
-import urllib.parse
+#author恰逢
+import json,re,sys,base64,requests
+from Crypto.Cipher import AES
+from pyquery import PyQuery as pq
 sys.path.append('..')
 from base.spider import Spider
 
 class Spider(Spider):
-    def getName(self):
-        return "喜马拉雅"
-
-    def init(self, extend=""):
-        print("============喜马拉雅============")
-        pass
-
-    def homeContent(self, filter):
-        result = {}
-        cateManual = {
-            "有声书": "youshengshu",
-            "儿童": "ertong", 
-            "音乐": "yinyue",
-            "相声": "xiangsheng",
-            "娱乐": "yule",
-            "广播剧": "guangbojv",
-            "历史": "lishi",
-            "外语": "waiyu"
-        }
-        classes = []
-        for k in cateManual:
-            classes.append({
-                'type_name': k,
-                'type_id': cateManual[k]
-            })
-        result['class'] = classes
-        return result
-
-    def homeVideoContent(self):
-        url = 'https://m.ximalaya.com/m-revision/page/category/queryCategoryAlbumsByPage?sort=0&pageSize=50&page=1&categoryCode=youshengshu'
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36"
-        }
-        rsp = self.fetch(url, headers=headers)
-        content = rsp.text
-        videos = self.get_list(content)
-        result = {
-            'list': videos
-        }
-        return result
-
-    def categoryContent(self, tid, pg, filter, extend):
-        result = {}
-        url = 'https://m.ximalaya.com/m-revision/page/category/queryCategoryAlbumsByPage?sort=0&pageSize=50&page={0}&categoryCode={1}'.format(pg, tid)
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36"
-        }
-        rsp = self.fetch(url, headers=headers)
-        content = rsp.text
-        videos = self.get_list(content)
-        result['list'] = videos
-        result['page'] = pg
-        result['pagecount'] = 9999
-        result['limit'] = 90
-        result['total'] = 999999
-        return result
-
-    def detailContent(self, array):
-        tid = array[0]
-        url = 'https://mobile.ximalaya.com/mobile/v1/album/track/ts-1720589105807?albumId={0}&pageId=1&pageSize=200&device=android&isAsc=true'.format(tid)
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36"
-        }
-        rsp = self.fetch(url, headers=headers)
-        content = rsp.text
-        data = json.loads(content)
-        
-        list_data = data['data']['list']
-        maxPageId = data['data']['maxPageId']
-        
-        # 获取所有分页数据
-        all_tracks = []
-        for j in range(1, maxPageId + 1):
-            page_url = url.replace('pageId=1', 'pageId={}'.format(j))
-            try:
-                page_rsp = self.fetch(page_url, headers=headers, timeout=2)
-                page_data = json.loads(page_rsp.text)
-                all_tracks.extend(page_data['data']['list'])
-            except:
-                continue
-        
-        # 构建播放列表
-        playList = []
-        for track in all_tracks:
-            # 修复播放地址获取
-            play_url = self.get_play_url(track['trackId'])
-            if play_url:
-                playList.append('{}${}'.format(track['title'], play_url))
-        
-        vod = {
-            "vod_id": tid,
-            "vod_name": list_data[0]['albumTitle'] if list_data else '',
-            "vod_pic": list_data[0]['coverLarge'] if list_data else '',
-            "vod_content": "暂无",
-            "vod_play_from": "喜马拉雅",
-            "vod_play_url": "#".join(playList)
-        }
-        
-        result = {
-            'list': [vod]
-        }
-        return result
-
-    def get_play_url(self, track_id):
-        """获取音频播放地址"""
+    SELECTORS=['.video-item','.video-list .item','.list-item','.post-item']
+    def getName(self):return"黑料不打烊"
+    def init(self,extend=""):pass
+    def homeContent(self,filter):
+        cateManual={"最新黑料":"hlcg","今日热瓜":"jrrs","每日TOP10":"mrrb","周报精选":"zbjx","月榜热瓜":"ybrg","反差女友":"fczq","校园黑料":"xycg","网红黑料":"whhl","明星丑闻":"mxcw","原创社区":"ycsq","推特社区":"ttsq","社会新闻":"shxw","官场爆料":"gchl","影视短剧":"ysdj","全球奇闻":"qqqw","黑料课堂":"hlkt","每日大赛":"mrds","激情小说":"jqxs","桃图杂志":"ttzz","深夜综艺":"syzy","独家爆料":"djbl"}
+        return{'class':[{'type_name':k,'type_id':v}for k,v in cateManual.items()]}
+    def homeVideoContent(self):return{}
+    def categoryContent(self,tid,pg,filter,extend):
+        url=f'https://heiliao.com/{tid}/'if int(pg)==1 else f'https://heiliao.com/{tid}/page/{pg}/'
+        videos=self.get_list(url)
+        return{'list':videos,'page':pg,'pagecount':9999,'limit':90,'total':999999}
+    def fetch_and_decrypt_image(self,url):
         try:
-            # 尝试获取播放地址
-            play_url = f'https://www.ximalaya.com/revision/play/v1/audio?id={track_id}&ptype=1'
-            headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36",
-                "Referer": "https://www.ximalaya.com/"
-            }
-            rsp = self.fetch(play_url, headers=headers)
-            data = json.loads(rsp.text)
-            
-            if data['ret'] == 200 and 'src' in data['data']:
-                return data['data']['src']
-            
-            # 如果上面的方法失败，尝试备用方法
-            return f"https://a.xmcdn.com/storages/audio/{track_id}.m4a"
-            
-        except Exception as e:
-            print(f"获取播放地址失败: {e}")
-            return f"https://a.xmcdn.com/storages/audio/{track_id}.m4a"
-
-    def searchContent(self, key, quick):
-        result = {}
-        url = 'https://www.ximalaya.com/revision/search/main?core=album&page=1&rows=20&kw={}'.format(urllib.parse.quote(key))
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36"
-        }
-        rsp = self.fetch(url, headers=headers)
-        content = rsp.text
-        data = json.loads(content)['data']['album']['docs']
-        
-        videos = []
-        for item in data:
-            videos.append({
-                "vod_id": item['albumId'],
-                "vod_name": item['title'],
-                "vod_pic": item['coverPath'],
-                "vod_remarks": ''
-            })
-        
-        result['list'] = videos
-        return result
-
-    def playerContent(self, flag, id, vipFlags):
-        result = {}
-        
-        # 处理播放地址
-        if re.search(r'm3u8|mp4|mp3|acc|m4a|wma|aac', id, re.IGNORECASE):
-            result["parse"] = 0
-            result["playUrl"] = ''
-            result["url"] = id
-            result["header"] = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36",
-                "Referer": "https://www.ximalaya.com/"
-            }
-        else:
-            # 如果id不是直接链接，尝试解析
-            result["parse"] = 0
-            result["playUrl"] = ''
-            result["url"] = id
-            result["header"] = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36",
-                "Referer": "https://www.ximalaya.com/"
-            }
-        
-        return result
-
-    def get_list(self, content):
-        videos = []
-        data = json.loads(content)
-        videoList = data['data']['albumBriefDetailInfos']
-        
-        for item in videoList:
-            # 跳过付费内容
-            if 'price' in item['albumInfo']:
-                continue
-            videos.append({
-                "vod_id": item['id'],
-                "vod_name": item['albumInfo']['title'],
-                "vod_pic": 'https://imagev2.xmcdn.com/' + item['albumInfo']['cover'],
-                "vod_remarks": ''
-            })
-        
-        return videos
-
-    def isVideoFormat(self, url):
-        pass
-
-    def manualVideoCheck(self):
-        pass
+            if url.startswith('//'):url='https:'+url
+            elif url.startswith('/'):url='https://heiliao.com'+url
+            r=requests.get(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.96 Safari/537.36','Referer':'https://heiliao.com/'},timeout=15,verify=False)
+            if r.status_code!=200:return b''
+            return AES.new(b'f5d965df75336270',AES.MODE_CBC,b'97b60394abc2fbe1').decrypt(r.content)
+        except: return b''
+    def _extract_img_from_onload(self,node):
+        try:
+            m=re.search(r"load(?:Share)?Img\s*\([^,]+,\s*['\"]([^'\"]+)['\"]",(node.attr('onload')or''))
+            return m.group(1)if m else''
+        except:return''
+    def _should_decrypt(self,url:str)->bool:
+        u=(url or'').lower();return any(x in u for x in['pic.gylhaa.cn','new.slfpld.cn','/upload_01/','/upload/'])
+    def _abs(self,u:str)->str:
+        if not u:return''
+        if u.startswith('//'):return'https:'+u
+        if u.startswith('/'):return'https://heiliao.com'+u
+        return u
+    def e64(self,s:str)->str:
+        try:return base64.b64encode((s or'').encode()).decode()
+        except:return''
+    def d64(self,s:str)->str:
+        try:return base64.b64decode((s or'').encode()).decode()
+        except:return''
+    def _img(self,img_node):
+        u=''if img_node is None else(img_node.attr('src')or img_node.attr('data-src')or'')
+        enc=''if img_node is None else self._extract_img_from_onload(img_node)
+        t=enc or u
+        return f"{self.getProxyUrl()}&url={self.e64(t)}&type=hlimg"if t and(enc or self._should_decrypt(t))else self._abs(t)
+    def _parse_items(self,root):
+        vids=[]
+        for sel in self.SELECTORS:
+            for it in root(sel).items():
+                title=it.find('.title, h3, h4, .video-title').text()
+                if not title:continue
+                link=it.find('a').attr('href')
+                if not link:continue
+                vids.append({'vod_id':self._abs(link),'vod_name':title,'vod_pic':self._img(it.find('img')),'vod_remarks':it.find('.date, .time, .remarks, .duration').text()or''})
+            if vids:break
+        return vids
+    def detailContent(self,array):
+        tid=array[0];url=tid if tid.startswith('http')else f'https://heiliao.com{tid}'
+        rsp=self.fetch(url)
+        if not rsp:return{'list':[]}
+        rsp.encoding='utf-8';html_text=rsp.text
+        try:root_text=pq(html_text)
+        except:root_text=None
+        try:root_content=pq(rsp.content)
+        except:root_content=None
+        title=(root_text('title').text()if root_text else'')or''
+        if' - 黑料网'in title:title=title.replace(' - 黑料网','')
+        pic=''
+        if root_text:
+            og=root_text('meta[property="og:image"]').attr('content')
+            if og and(og.endswith('.png')or og.endswith('.jpg')or og.endswith('.jpeg')):pic=og
+            else:pic=self._img(root_text('.video-item-img img'))
+        detail=''
+        if root_text:
+            detail=root_text('meta[name="description"]').attr('content')or''
+            if not detail:detail=root_text('.content').text()[:200]
+        play_from,play_url=[],[]
+        if root_content:
+            for i,p in enumerate(root_content('.dplayer').items()):
+                c=p.attr('config')
+                if not c:continue
+                try:s=(c.replace('&quot;','"').replace('&#34;','"').replace('&amp;','&').replace('&#38;','&').replace('&lt;','<').replace('&#60;','<').replace('&gt;','>').replace('&#62;','>'));u=(json.loads(s).get('video',{})or{}).get('url','')
+                except:m=re.search(r'"url"\s*:\s*"([^"]+)"',c);u=m.group(1)if m else''
+                if u:
+                    u=u.replace('\\/','/');u=self._abs(u)
+                    play_from.append(f'视频{i+1}');play_url.append(u)
+        if not play_url:
+            for pat in[r'https://hls\.[^"\']+\.m3u8[^"\']*',r'https://[^"\']+\.m3u8\?auth_key=[^"\']+',r'//hls\.[^"\']+\.m3u8[^"\']*']:
+                for u in re.findall(pat,html_text):
+                    u=self._abs(u);play_from.append(f'视频{len(play_from)+1}');play_url.append(u)
+                    if len(play_url)>=3:break
+                if play_url:break
+        if not play_url:
+            js_patterns=[r'video[\s\S]{0,500}?url[\s"\'`:=]+([^"\'`\s]+)',r'videoUrl[\s"\'`:=]+([^"\'`\s]+)',r'src[\s"\'`:=]+([^"\'`\s]+\.m3u8[^"\'`\s]*)']
+            for pattern in js_patterns:
+                js_urls=re.findall(pattern,html_text)
+                for js_url in js_urls:
+                    if'.m3u8'in js_url:
+                        if js_url.startswith('//'):js_url='https:'+js_url
+                        elif js_url.startswith('/'):js_url='https://heiliao.com'+js_url
+                        elif not js_url.startswith('http'):js_url='https://'+js_url
+                        play_from.append(f'视频{len(play_from)+1}');play_url.append(js_url)
+                        if len(play_url)>=3:break
+                if play_url:break
+        if not play_url:
+            play_from.append('示例视频');play_url.append("https://hls.obmoti.cn/videos5/b9699667fbbffcd464f8874395b91c81/b9699667fbbffcd464f8874395b91c81.m3u8?auth_key=1760372539-68ed273b94e7a-0-3a53bc0df110c5f149b7d374122ef1ed&v=2")
+        return{'list':[{'vod_id':tid,'vod_name':title,'vod_pic':pic,'vod_content':detail,'vod_play_from':'$$$'.join(play_from),'vod_play_url':'$$$'.join(play_url)}]}
+    def searchContent(self,key,quick,pg="1"):
+        rsp=self.fetch(f'https://heiliao.com/index/search?word={key}')
+        if not rsp:return{'list':[]}
+        return{'list':self._parse_items(pq(rsp.text))}
+    def playerContent(self,flag,id,vipFlags):
+        return{"parse":0,"playUrl":"","url":id,"header":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.96 Safari/537.36","Referer":"https://heiliao.com/"}}
+    def get_list(self,url):
+        rsp=self.fetch(url)
+        return[]if not rsp else self._parse_items(pq(rsp.text))
+    def fetch(self,url,params=None,cookies=None,headers=None,timeout=5,verify=True,stream=False,allow_redirects=True):
+        h=headers or{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.96 Safari/537.36","Referer":"https://heiliao.com/"}
+        return super().fetch(url,params=params,cookies=cookies,headers=h,timeout=timeout,verify=verify,stream=stream,allow_redirects=allow_redirects)
+    def localProxy(self,param):
+        try:
+            if param.get('type')=='hlimg':
+                url=self.d64(param.get('url'))
+                if url.startswith('//'):url='https:'+url
+                elif url.startswith('/'):url='https://heiliao.com'+url
+                r=requests.get(url,headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.96 Safari/537.36","Referer":"https://heiliao.com/"},timeout=15,verify=False)
+                if r.status_code!=200:return[404,'text/plain','']
+                b=AES.new(b'f5d965df75336270',AES.MODE_CBC,b'97b60394abc2fbe1').decrypt(r.content)
+                ct='image/jpeg'
+                if b.startswith(b'\x89PNG'):ct='image/png'
+                elif b.startswith(b'GIF8'):ct='image/gif'
+                return[200,ct,b]
+        except:pass
+        return[404,'text/plain','']
