@@ -146,6 +146,17 @@
             "order_num": 0,
             "ext": ""
         },
+        {
+            "key": "黑料弹幕版.py",
+            "name": "黑料弹幕版",
+            "type": 3,
+            "api": "./py/黑料弹幕版.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
     {
             "key": "lsp传媒.py",
             "name": "lsp传媒(py)",
