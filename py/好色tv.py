@@ -1,3 +1,4 @@
+#@恰逢
 import re
 import sys
 import urllib.parse
@@ -13,11 +14,9 @@ class Spider(Spider):
     def __init__(self):
         # 基础配置
         self.name = '好色TV（优）'
-        self.host = 'https://hsex.icu/'
+        self.host = 'https://m.ml0987.online/'
         self.candidate_hosts = [
-            "https://hsex.icu/",
-            "https://hsex1.icu/",
-            "https://hsex.tv/"
+            "https://m.ml0987.online/"
         ]
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -385,11 +384,17 @@ class Spider(Spider):
             # 编码关键词
             encoded_key = urllib.parse.quote(key.strip(), encoding='utf-8', errors='replace')
             
-            # 构造搜索URL
-            search_url = f"{self.host}search.htm"
+            # 修复搜索翻页：根据页码构造正确的搜索URL
+            if int(pg) == 1:
+                # 第一页：/search.htm?search=关键词
+                search_url = f"{self.host}search.htm"
+            else:
+                # 第二页及以后：/search-页码.htm?search=关键词  
+                search_url = f"{self.host}search-{pg}.htm"
+            
+            # 搜索参数
             params = {
-                'search': encoded_key,
-                'page': int(pg)
+                'search': encoded_key
             }
             
             # 发起请求
@@ -399,6 +404,7 @@ class Spider(Spider):
                 params=params,
                 timeout=8
             )
+            
             if resp.status_code not in (200, 302):
                 print(f"搜索页面请求失败，URL：{resp.url}，状态码：{resp.status_code}")
                 return {'list': [], 'page': int(pg), 'pagecount': 1, 'limit': 0, 'total': 0}
@@ -573,5 +579,3 @@ class Spider(Spider):
                 'headers': {},
                 'url': url
             })
-
-
