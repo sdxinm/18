@@ -13,27 +13,7 @@
   "filterable": 0,
   "changeable": 0
 },
-{
-            "key": "php_server",
-            "name": "PHP爬虫",
-            "type": 3,
-            "api": "csp_PhpServer",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "jar": "./jar/fm_xMydev.jar"
-        },
-        {
-            "key": "php_server2",
-            "name": "PHP爬虫第二套服务php版",
-            "type": 3,
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "api": "csp_PhpServer2",
-            "jar": "./jar/yt (1).jar"
-        },
-        {
+     {
             "key": "y_139fm",
             "name": "y_139fm",
             "type": 3,
@@ -44,6 +24,17 @@
             "filterable": 1,
             "playerType": 2
     },
+    {
+  "key": "js_138FM",
+  "name": "138FM(18+)(js)",
+  "type": 3,
+  "api": "./js/138FM.min.js",
+  "searchable": 1,
+  "quickSearch": 0,
+  "filterable": 0,
+  "changeable": 0,
+  "ext": {}
+},
     {
             "key": "喜马拉雅",
             "name": "喜马拉雅",
@@ -81,16 +72,20 @@
             "ext": ""
         },
         {
-            "key": "motv",
-            "name": "motv",
+            "key": "csp_XYQHiker_MOTV",
+            "name": "🔞MOTV",
             "type": 3,
+            "api": "csp_XYQHiker",
+            "jar": "./jar/XYQ.jar",
             "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "api": "./py/motv.py",
-            "order_num": 0,
-            "ext": ""
-        }, 
+            "quickSearch": 0,
+            "filterable": 0,
+            "ext": "./js/motv.json",
+            "style": {
+                "type": "rect",
+                "ratio": 1.6
+            }
+        },
         
         {
             "key": "禁片天堂.py",
