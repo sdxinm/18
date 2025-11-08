@@ -13,6 +13,28 @@
   "filterable": 0,
   "changeable": 0
 },
+{
+            "key": "py集合",
+            "name": "py集合",
+            "type": 4,
+            "api": "http://zhangqun1818.serv00.net/py.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+             "style": {
+                "type": "rect",
+                "ratio": 1.33
+            }
+        },
+        {
+            "key": "php在线",
+            "name": "php在线",
+            "type": 4,
+            "api": "http://zhangqun1818.serv00.net/php.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
      {
             "key": "y_139fm",
             "name": "y_139fm",
@@ -49,6 +71,7 @@
                 "plp": ""
             }
         },
+        
         {
             "key": "uaa有声",
             "name": "uaa有声",
@@ -61,10 +84,32 @@
             "ext": ""
         },
         {
+            "key": "javdb",
+            "name": "javdb",
+            "type": 3,
+            "api": "./py/javdb.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+    },
+        {
             "key": "黄色仓库",
             "name": "黄色仓库",
             "type": 3,
             "api": "./py/黄色仓库.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
+        {
+            "key": "神秘影院",
+            "name": "神秘影院",
+            "type": 3,
+            "api": "./py/神秘影院.py",
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
@@ -170,12 +215,22 @@
             "filterable": 1,
             "playerType": 2
     },
-    
+    {
+            "key": "91pro",
+            "name": "91pro",
+            "type": 3,
+            "api": "./py/91pro.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+    },
     {
             "key": "91rb",
             "name": "91rb",
             "type": 3,
-            "api": "./py/91rb (1).py",
+            "api": "./py/91RB.py",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
@@ -797,6 +852,19 @@
 "filterable": 1,
 "ext": "./18/badnews.json"
 },
+{
+            "key": "Netflav",
+            "name": "🔞Netflav ",
+            "type": 3,
+            "api": "csp_Netflav",
+            "searchable": 1,
+            "quickSearch": 0,
+            "changeable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.5
+            }
+        },
 {
             "key": "五马抖音",
             "name": "🏆五马抖音",
@@ -1920,26 +1988,27 @@
         "分类": "最新影片$page/7#日韓無碼$rihanwuma/2#FC2無碼$fc2/8#日韓有碼$rihanyouma/3#中文字幕$jxny/11#國產AV$chinese-av-porn/17#自拍偷拍$surenzipai/4#歐美無碼$oumeiwuma/1#成人動漫$chengrendongman/5"}
     },
         
-{"key": "SOAV",
-            "name": "🔞SOAV",
+{
+            "key": "csp_SOAV",
+            "name": "✈️SOAV视频",
             "type": 3,
             "api": "csp_XBPQ",
-            "jar": "./lib/XBPQ.jar",
+            "jar": "./jar/XBPQ.jar",
             "style": {
                 "type": "rect",
                 "ratio": 1.5
             },
             "ext": {
-                "主页url": "https://777320.xyz/",
-                "搜索url": "https://777320.xyz/?s={wd}",
-                "数组": "data-video-uid=&&</div>",
+                "主页url": "https://777115.xyz",
+                "搜索url": "https://777115.xyz/?s={wd}",
+                "数组": "data-video-id=&&</div>",
                 "图片": "data-src=\"&&\"",
                 "标题": "alt=\"&&\"",
                 "副标题": "</i>&&</span>",
                 "链接": "href=\"&&\"",
-                "简介": "⚠️少看点，再看你就废了！！！",
-                "分类url": "https://777320.xyz/category/{cateId}/page/{catePg}/;;z",
-                "分类": "中文字幕$中文字幕#國產精選$國產精選#探花約炮$探花約炮#日韓影片$日韓影片#無碼素人$無碼素人#歐美專區$歐美專區#中字動漫$中字動漫"
+                "简介": "",
+                "分类url": "https://777115.xyz/{cateId}/page/{catePg}/;;z",
+                "分类": "探花約炮$%e6%8e%a2%e8%8a%b1%e7%b4%84%e7%82%ae#日韓视频$%e6%97%a5%e9%9f%a9%e8%a7%86%e9%a2%91#国产嫩妹$%e5%9c%8b%e7%94%a2%e5%ab%a9%e5%a6%b9#歐美專區$%e6%ad%90%e7%be%8e%e4%b8%ad%e5%ad%97#國產視頻$%e5%9b%bd%e4%ba%a7%e8%a7%86%e9%a2%91#網紅主播$%e7%b6%b2%e7%b4%85%e4%b8%bb%e6%92%ad#吃瓜黑料$%e5%90%83%e7%93%9c%e9%bb%91%e6%96%99#日本无码$%e6%97%a5%e6%9c%ac%e6%97%a0%e7%a0%81"
             }
         },
         {
@@ -2300,27 +2369,25 @@
         },
       {
             "key": "13AV",
-            "name": "🔞13AV",
+            "name": "✈️13AV备用",
             "type": 3,
             "api": "csp_XBPQ",
-            "jar": "./lib/XBPQ.jar",
+            "jar": "./jar/XBPQ.jar",
             "style": {
                 "type": "rect",
                 "ratio": 1.5
             },
             "ext": {
-             "直接播放": "1",
-                "嗅探词": ".m3u8#.mp4",
                 "主页url": "https://13av.com/",
                 "过滤词": ".mp4",
-                "数组": "\"col-6 col-sm-4 col-lg-3\"&&\"col-6 col-sm-4 col-lg-3\"",
+                "数组": "overflow-hidden shadow-lg&&</div",
                 "图片": "data-src=\"&&\"",
-                "标题":"class=\"title\">&&</a>",
-                "副标题": "class=\"label\">&&</span>",
+                "标题": "alt=\"&&\"",
+                "副标题": "bg-opacity-75\">&&</span>",
                 "链接": "href=\"&&\"",
                 "简介": "⚠️慢点撸，皮要掉了！！！",
-                "分类url": "https://13av.com/type/{cateId}/{catePg}.html;;z",
-                "分类": "角色剧情$5#直接开啪$6#主奴调教$7#凌辱快感$8#无码影视$24#中文字幕$9#制服诱惑$10#丝袜美腿$21#男友视角$20#多P群交$22#盗摄偷拍$23#女同欢愉$25"
+                "分类url": "https://13av.com/{cateId}?page={catePg};;z",
+                "分类": "中文字幕$chinese-subtitle#国产AV$madou#欧美大片$genres/%E5%A4%96%E5%9B%BD%E5%A5%B3%E4%BC%98#最近更新$new#新作上市$release#无码流出$uncensored-leak#东京热$tokyohot#一本道$1pondo#FC2$fc2#HEYZO$heyzo#加勒比$caribbeancom#加勒比PR$caribbeancompr#10musume$10musume#pacopacomama$pacopacomama#gachinco$gachinco#XXX-AV$xxxav#人妻斬$marriedslash#顽皮4610$naughty4610#顽皮0930$naughty0930#VR$VR#SIRO$siro#LUXU$luxu#GANA$gana#MAAN$maan#S-CUTE$scute#ARA$ara#麻豆傳媒$madou#TWAV$twav#韓國直播$klive#中國直播$clive"
             }
         },
         {
@@ -2585,7 +2652,7 @@
 				"分类": "All$/#against-the-wall$/tag/against-the-wall/#anal$/tag/anal/#ahegao$/tag/ahegao/#big-ass$/tag/big-ass/#big-breasts$/tag/big-breasts/#from-behind$/tag/from-behind/#moaning$/tag/moaning/#male-pov$/tag/male-pov/#looking-at-viewer$/tag/looking-at-viewer/#vaginal-penetration$/tag/vaginal-penetration/#big-penis$/tag/big-penis/#blowjob$/tag/blowjob/#big-white-cock$/tag/big-white-cock/#big-thighs$/tag/big-thighs/#big-black-cock$/tag/big-black-cock/#tags不能播$/tag/"
 			}
 		},
-		{
+		 {
 			"key": "JavDb",
 			"name": "🔞JavDb┃磁力",
 			"type": 3,
@@ -2595,7 +2662,7 @@
 			"filterable": 1,
 			"changeable": 0,
 			"timeout": 60,
-			"ext": "https://javdb457.com/$$$proxy",
+			"ext": "https://javdb563.com/$$$noproxy",
 			"style": {
 				"type": "rect",
 				"ratio": 1.485
