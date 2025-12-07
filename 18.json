@@ -35,6 +35,61 @@
             "quickSearch": 1,
             "filterable": 1
         },
+                  {
+            "key": "小黄书",
+            "name": "小黄书",
+            "type": 3,
+            "api": "./py/小黄书[密].py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
+                 {
+            "key": "91.py",
+            "name": "91.py",
+            "type": 3,
+            "api": "./py/91.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
+                  {
+            "key": "七哥大洋马",
+            "name": "七哥大洋马",
+            "type": 3,
+            "api": "./py/七哥大洋马.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
+         {
+            "key": "小苹果",
+            "name": "小苹果",
+            "type": 3,
+            "api": "./py/小苹果.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },     
+            {
+            "key": "妲己",
+            "name": "妲己",
+            "type": 3,
+            "api": "./py/妲己.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        }, 
      {
             "key": "y_139fm",
             "name": "y_139fm",
@@ -71,7 +126,61 @@
                 "plp": ""
             }
         },
-        
+        {
+            "key": "小处女",
+            "name": "小处女",
+            "type": 3,
+            "api": "./py/小处女.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
+        {
+            "key": "E佬社区",
+            "name": "E佬社区",
+            "type": 3,
+            "api": "./py/E佬社区.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
+                {
+            "key": "E佬苹果",
+            "name": "E佬苹果",
+            "type": 3,
+            "api": "./py/E佬苹果.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
+                {
+            "key": "E佬视频",
+            "name": "E佬视频",
+            "type": 3,
+            "api": "./py/E佬视频.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
+                {
+            "key": "吃瓜网",
+            "name": "吃瓜网",
+            "type": 3,
+            "api": "./py/吃瓜网.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "order_num": 0,
+            "ext": ""
+        },
         {
             "key": "uaa有声",
             "name": "uaa有声",
@@ -95,8 +204,8 @@
             "playerType": 2
     },
         {
-            "key": "黄色仓库",
-            "name": "黄色仓库",
+            "key": "黄色仓库.py",
+            "name": "黄色仓库.py",
             "type": 3,
             "api": "./py/黄色仓库.py",
             "searchable": 1,
@@ -163,6 +272,20 @@
             "quickSearch": 1,
             "filterable": 1,
             "api": "./py/javxx.py",
+            "ext": {
+                "proxy": {},
+                "plp": ""
+            }
+        },
+{
+            "key": "JAVXXX",
+            "name": "JAVXXX",
+            "type": 3,
+            "searchable": 1,
+            "player Type": 2,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "./py/JAVXXX.py",
             "ext": {
                 "proxy": {},
                 "plp": ""
@@ -281,7 +404,17 @@
             "order_num": 0,
             "ext": ""
         },
-       
+    {
+            "key": "玩具社区",
+            "name": "玩具社区",
+            "type": 3,
+            "api": "./py/玩具社区.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+    },
     {
             "key": "freeok",
             "name": "freeok",
@@ -372,9 +505,9 @@
              "jar": "./jar/XBPQ.jar",
             "ext": "./18/18j.json"
         },
-        {
-            "key": "超级精品",
-            "name": "超级精品",
+                {
+            "key": "凡人修色传",
+            "name": "凡人修色传",
             "type": 3,
             "searchable": 1,
             "quickSearch": 1,
@@ -382,7 +515,7 @@
             "changeable": 1,
             "api": "csp_XBPQ",
              "jar": "./jar/XBPQ.jar",
-            "ext": "./18/超级精品.json"
+            "ext": "./18/凡人修色传.json"
         },
         {
             "key": "淫岛专场",
@@ -399,7 +532,7 @@
         
         {
             "key": "🈲🔞Pornhub.py",
-            "name": "🈲🔞Pornhub.py",
+           "name": "🈲🔞Pornhub.py",
             "type": 3,
             "api": "./py/Pornhub.py",
             "searchable": 1,
@@ -408,24 +541,7 @@
             "filterable": 1,
             "playerType": 2
     },  
-    {
-            "key": "missav.go",
-            "name": "missav.go",
-            "type": 3,
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0,
-            "api": "./py/Miss.py",
-            "ext": {
-                "site": "https://missav.ai",
-                "cfgo": "./py/cf-proxy-linux-arm64",
-                "plp": "",
-                "proxy": {
-                    "http": "",
-                    "https": ""
-                }
-            }
-        },
+    
     {
             "key": "51吸瓜动态版",
             "name": "51吸瓜动态版",
@@ -502,10 +618,22 @@
             "changeable": 0
         },  
         {
+            "key": "一区",
+            "name": "Aries|一区",
+            "type": 3,
+            "playerType": 2,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./18/一区.json"
+        },
+        {
             "key": "七区.py",
             "name": "七区.py",
             "type": 3,
-            "api": "./py/七区.py",
+            "api": "./py/菠萝七区.py",
             "searchable": 1,
             "quickSearch": 0,
             "filterable": 0,
@@ -541,8 +669,8 @@
   "quickSearch": 0,
   "filterable": 0,
   "changeable": 0
-},
-{
+},  
+           {
             "key": "魔法少女1",
             "name": "魔法少女1",
             "type": 3,
@@ -1390,19 +1518,7 @@
 {"key": "py_lav.py","name": "🔞lav.py🍎","type": 3,"api": "./18/lav.py","searchable": 0,"quickSearch": 0,"filterable": 0,"changeable": 0},
         {"key": "py_小红书","name": "🔞小红书🍎","type": 3,"api": "./18/小红书.py","searchable": 0,"quickSearch": 0,"filterable": 0,"changeable": 0},
         {"key": "py_推特","name": "🔞推特🍎","type": 3,"api": "./18/推特.py","searchable": 0,"quickSearch": 0,"filterable": 0,"changeable": 0},
-{
-  "key":"csp_XYQHiker_stripchat直播",
-  "name": "🔞StripChat直播(XYQHiker)",
-  "type": 3,
-  "api": "csp_XYQHiker",
-  "jar": "./jar/XYQ.jar",
-  "searchable": 1,
-  "quickSearch": 0,
-  "filterable": 0,
-  "ext": "./18/stripchat直播.json",
-  "style": {"type": "rect",
-  "ratio": 1.6}
-  },
+
   
   {
             "key": "松视开通1",
@@ -1785,13 +1901,17 @@
             "name": "🔞糖心次元",
             "type": 3,
             "api": "csp_XBPQ",
-            "jar": "./lib/XBPQ.jar",
+            "jar": "./jar/xbpq250816.jar",
             "style": {
                 "ratio": 1.7
             },
             "ext": {
+            "直接播放": "1",
+                
+            
                 "数组": "<section&&</section",
                 "副标题": "添加时间:&&</span>",
+                "链接": "https://txcy-online.buzz/vodplay/+voddetail/&&/+-1-1/",
                 "分类url": "https://7m25cq.txcytkd.buzz/index.php/vodtype/{cateId}-{catePg}.html;;z",
                 "分类": "国产片商$32#节目企划$3#代理节目$2#麻豆原创$1#导演系列$5#MDS系列$6#MDX系列$7#MD系列$4#MDXS系列$8#兔子先生$10#大鸟十八$17#疯拍系列$18#KISS糖果屋$19#小鹏奇啪行$20#30天解密麻豆$22#突袭女优计划$23#女神羞羞研究所$24#小哥哥艾理$27#情趣K歌房$31#淫欲游戏王$40#麻豆不回家$41#叮叮映画$71#涩会$72#豚豚创媒$75#MDL系列$46#MMZ系列$50#MAD系列$53#MDWP系列$58#MSD系列$64#MDM恋爱咖啡$74#MDUS系列$78#MXJ系列$79#MKY系列$87#MAN系列$89#MCY系列$96#MDAG系列$100#MDHT系列$101#BLX系列$115#MPG系列$116#果冻传媒$11#皇家华人$12#吴梦梦无套系列$13#PsychoPorn色控$14#蜜桃影像传媒$15#天美传媒$45#乌鸦传媒$33#精东影业$34#SWAG$36#91制片厂$52#MSM性梦者$65#爱妃传媒$76#辣椒原创$80#O-STAR$81#肉肉传媒$91#渡边传媒$95#葵心娱乐$97#红斯灯影像$103#麻麻传媒$104#蝌蚪传媒$105#Pussy Hunter$106#桃花源$108#女优淫娃培训营$42#狼人插$54#女优擂台摔角狂热$55#恋爱巴士$61#男女优生死斗$66#情人劫密室逃脱$67#换妻$68#你好同学$69#禁欲小屋$77#鲍鱼的胜利$84#性爱自修室$88#春游记$92#心动的性号$93#情趣大富翁$94#寻宝吧女神$99#男优练习生$102#女神体育祭$110#麻豆高校$111#野外露初$112#星空无限传媒$47#乐播传媒$48#大象传媒$59#MINI传媒$62#糖心$73#葫芦影业$82#天马传媒$83#CCAV成人头条$90#性视界传媒$109#SA国际传媒$113#起点传媒$114#91茄子$117#草莓猛料$118"
             }
@@ -1800,12 +1920,13 @@
             "key": "溏心次元①",
             "name": "👩🏻‍❤‍👨🏻溏心①┃频道",
             "type": 3,
-            "jar": "./jar/xyqxbpq.jar",
+            "jar": "./jar/xbpq250816.jar",
             "api": "csp_XBPQ",
             "ext": {
                 "搜索模式": "1",
                 "搜索url": "https://7m25cq.txcytkd.buzz/index.php/vodsearch/{wd}----------{pg}---.html",
-                "分类url": "https://7m25cq.txcytkd.buzz/index.php/vodtype/{cateId}-{catePg}.html;;z",
+                "链接": "https://txcy-online.buzz/vodplay/+voddetail/&&/+-1-1/",
+                "分类url": "https://txcy-online.buzz/index.php/vodtype/{cateId}-{catePg}.html;;z",
                 "分类": "麻豆原创$1#代理节目$2#节目企划$3#国产片商$32#MD系列$4#导演系列$5#MDS系列$6#MDX系列$7#MDXS系列$8#MDL系列$46#MMZ系列$50#MAD系列$53#MDWP系列$58#MSD系列$64#MDM恋爱咖啡$74#MDUS系列$78#MXJ系列$79#MKY系列$87#MAN系列$89#MCY系列$96#MDAG系列$100#MDHT系列$101#BLX系列$115#MPG系列$116#杏吧专区$9#兔子先生$10#果冻传媒$11#皇家华人$12#吴梦梦无套系列$13#PsychoPorn色控$14#蜜桃影像传媒$15#大番号番啪啪$16#天美传媒$45#91制片厂$52#MSM性梦者$65#叮叮映画$71#涩会$72#豚豚创媒$75#爱妃传媒$76#辣椒原创$80#O-STAR$81#肉肉传媒$91#渡边传媒$95#葵心娱乐$97#红斯灯影像$103#麻麻传媒$104#蝌蚪传媒$105#Pussy Hunter$106#瑷荳传媒$107#桃花源$108#大鸟十八$17#疯拍系列$18#KISS糖果屋$19#小鹏奇啪行$20#男优出征趣$21#30天解密麻豆$22#突袭女优计划$23#女神羞羞研究所$24#小哥哥艾理$27#REAL野性派$29#情趣K歌房$31#北京天使$39#淫欲游戏王$40#麻豆不回家$41#女优淫娃培训营$42#狼人插$54#女优擂台摔角狂热$55#恋爱巴士$61#MLT系列$63#男女优生死斗$66#​情人劫密室逃脱$67#换妻$68#你好同学$69#麻豆达人秀$70#禁欲小屋$77#鲍鱼的胜利$84#宫美娱乐$85#MSG系列$86#性爱自修室$88#春游记$92#心动的性号$93#情趣大富翁$94#YOKUBOU$98#寻宝吧女神$99#男优练习生$102#女神体育祭$110#麻豆高校$111#野外露初$112#乌鸦传媒$33#精东影业$34#SWAG$36#星空无限传媒$47#大象传媒$48#开心鬼传媒$57#大象传媒$59#短视频$51#MINI传媒$62#糖心$73#葫芦影业$82#天马传媒$83#CCAV成人头条$90#性视界传媒$109#SA国际传媒$113#香蕉传媒$114#91茄子$117#EDmosaic$118"
             }
         },
@@ -1817,8 +1938,8 @@
             "api": "csp_XBPQ",
             "ext": {
                 "搜索模式": "1",
-                "搜索url": "https://7m25cq.txcytkd.buzz/index.php/vodsearch/{wd}----------{pg}---.html",
-                "分类url": "https://7m25cq.txcytkd.buzz/index.php/actordetail/{cateId}.html;;z",
+                "搜索url": "https://txcy-online.buzz/index.php/vodsearch/{wd}----------{pg}---.html",
+                "分类url": "https://txcy-online.buzz/index.php/actordetail/{cateId}.html;;z",
                 "分类": "吴梦梦$1#沈娜娜$2#艾艾$3#艾拉$4#艾鲤$5#艾秋$6#艾熙$7#安娜$8#白佳莹$9#白金$10#白靖寒$11#白鹿$12#白沛瑶$13#瑶贝$14#白若冰$15#白思吟$16#陈可心$17#陈美琳$18#陈小雨$19#程诗诗$20#楚梦舒$21#杜冰若$22#方紫璐$23#付妙菱$24#高小颜$25#顾桃桃$26#顾依梦$27#管明美$28#郭童童$29#韩宝儿$30#韩诗雨$31#韩棠$32#韩熙$33#韩伊人$34#韩子妍$35#胡心瑶$36#季妍希$37#简一$38#周梦琪$39#周甯$40#周卿卿$41#金丞熙$42#赖畇希$43#岚湘庭$44#蓝歆悦$45#乐乐$46#黎儿$47#黎星若$48#李靖琪$49#李曼妮$50#李慕儿$51#李娜$52#李蓉蓉$53#李小婵$54#李允熙$55#梁芸菲$56#林芊彤$57#林思妤$58#林襄$59#林晓雪$60#林雪漫$61#林嫣$62#林怡梦$63#林亦涵$64#凌薇$65#刘豆豆$66#刘思慧$67#刘依依$68#刘语姗$69#陆思涵$70#陆子欣$71#罗瑾萱$72#斑斑$73#孟若羽$74#米亚$75#蜜苏$76#莫夕慈$77#莫潇潇$78#慕非非$79#穆雪$80#南芊允$81#倪哇哇$82#宁洋子$83#欧美玲$84#欧妮$85#潘雨曦$86#秦可欣$87#沈芯语$88#舒可芯$89#宋南伊$90#宋妮可$91#颂潮$92#苏畅$93#​苏念瑾$94#苏清歌$95#苏小新$96#苏娅$97#苏语棠$98#孙缇娜$99#谭瑛瑛$100#檀雅$101#唐霏$102#唐雨婕$103#陶白白$104#陶子$105#娃诺$106#王茜$107#温芮欣$108#文冰冰$109#翁雨澄$110#娃娃$111#吴茜茜$112#吴芮瑜$113#夏晴子$114#夏瀅$115#夏禹熙$116#仙儿媛$117#项子宁$118#徐蕾$119#徐韻珊$120#许安妮$121#许书曼$122#许依然$123#宣萱$124#璇元$125#雪莉$126#雪千夏$127#寻小小$128#杨玉环$129#叶如梦$130#叶一涵$131#苡若$132#尹媚$133#袁采菱$134#袁子仪$135#玥可岚$136#张妮妮$137#张婉妍$138#张小九$139#张娅庭$140#张芸熙$141#赵佳美$142#赵一曼$143#赵颖儿$144#锺丽琪$145#锺宛冰$146#STACY$147#玖玖$148#乐奈子$149#黎娜$150#吴芳宜$151#夜夜$152#尤莉$153#羽芮$154"
             }
         },
@@ -3109,7 +3230,39 @@
 				"分类链接": "http://www.xbyc.cc/index.php/vod/type/id/{cateId}/page/{catePg}.html;;mz"
 			}
 		},
-		
+	{
+      "key": "XJCJ",
+      "name": "香蕉采集",
+      "type": 1,
+      "api": "https://www.xiangjiaozyw.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "categories": [
+        "欧美精品",
+        "卡通动漫",
+        "乱伦中出",
+        "传媒原创",
+        "口爆颜射",
+        "岛国女优",
+        "萝莉少女",
+        "国产直播",
+        "岛国群交",
+        "中文字幕",
+        
+        "岛国素人",
+        "吃瓜爆料",
+        "淫娃自慰",
+        "公开漏出",
+        "户外打野",
+        "高潮喷水",
+        
+        "AI换脸",
+        "AV解说",
+        "伦理三级",
+        "韩国直播"
+      ]
+    },
 		{
 			"key": "kkk",
 			"name": "🔞KKK┃采集",
@@ -3762,18 +3915,7 @@
                 "ratio": 3.8
             }
         },
-        {
-            "key": "drpy_js_磁力熊",
-            "name": "磁力熊[js]|索引",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/cilixiongp.js",
-            "playerType": "1",
-            "searchable": 0,
-            "quickSearch": 0,
-            "changeable": 1,
-            "indexs": 1
-        },
+
         {
             "key": "bili",
             "name": "B站 | Bili[jar]",
@@ -3829,93 +3971,7 @@
             }
         },
         
-        {
-            "key": "迅雷8",
-            "name": "迅雷吧|XBPQ|磁力",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "jar": "./lib/XBPQ.jar;md5;4145467d49e0437dc43e8bbb79e3ff7d",
-            "ext": {
-                "播放数组": "copylink&&</a>",
-                "播放链接": "alt=\"&&\"",
-                "简介": "b1f40f7888\"&&</p>",
-                "分类url": "https://xunlei8.cc/{cateId}-{class}-{year}-{area}-hot-{catePg}-30.html",
-                "分类": "电视剧$tv#电影$list"
-            }
-        },
-        {
-            "key": "小白",
-            "name": "🧲 4小白磁力🧲 |XBPQ",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "jar": "./lib/XBPQ.jar;md5;4145467d49e0437dc43e8bbb79e3ff7d",
-            "ext": {
-                "主页url": "https://www.xbw20.com/",
-                "编码": "gb2312",
-                "图片": "data-src=\"&&\"",
-                "标题": "alt=\"&&\"",
-                "副标题": "class=\"time\">&&</label",
-                "分类url": "https://www.xbw20.com/search.asp?page={catePg}&searchword={area}&searchtype=2[https://www.xbw20.com/vod/{cateId}.html]",
-                "分类": "电影$newmovie#电视剧$newTV#4K专区$new4K#动画片$newcartoon",
-                "起始页": 2,
-                "倒序": 1,
-                "播放数组": "迅雷下载</div>&&</div>",
-                "播放列表": "<a&&</a >"
-            }
-        },
-        {
-            "key": "BT天堂",
-            "name": "🌈BT天堂|磁力|XBPQ",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": "./lib/bttt.json",
-            "jar": "./lib/XBPQ.jar"
-        },
-        {
-            "key": "布谷tv",
-            "name": "🐦布谷|4K磁力|XBPQ",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "jar": "./lib/XBPQ.jar",
-            "ext": {
-                "搜索链接": "https://www.bugutv.org/?cat=&s={wd}",
-                "简介": "◎简*介</p>&&</p>",
-                "线路数组": "entry-content u-text-format u-clearfix&&\"content-template",
-                "线路标题": "磁力",
-                "播放数组": "entry-content u-text-format u-clearfix&&content-template[不包含:网盘]",
-                "播放列表": "<p>&&</p>[包含:magnet]",
-                "分类": "4KUHD电影$4kuhd#4K电影$4kmovie#4K剧集$4ktv#杜比视界$dolbyvision#4K纪录片$4kdocu#4K演示片$4kdemo/4ktv-4ktv#杜比演示片$4kdemo/dolbydomo#DTS演示片$4kdemo/dtsdomo#8K演示片$4kdemo/8kdemo#蓝光电影$bluraymovie/bluray-movie#蓝光剧集$bluraymovie/bluraytv#3D蓝光$bluraymovie/3dmovie#蓝光纪录片$bluraymovie/documentary#蓝光演唱会$bluraymovie/audiotest",
-                "分类链接": "https://www.bugutv.org/{cateId}/page/{catePg}",
-                "搜索数组": "class=\"entry-media\">&&</div"
-            }
-        },
-        {
-            "key": "haokongbu",
-            "name": "👿好恐怖|磁力|XBPQ",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": {
-                "主页url": "https://m.haokongbu.top/",
-                "分类url": "https://m.haokongbu.top/{cateId}/index_{catePg}.html[https://m.haokongbu.top/{cateId}/index.html]",
-                "分类": "国产剧$guochanju#港剧$gangju#动作片$dongzuopian#喜剧片$xijupian#爱情片$aiqingpian#科幻片$kehuanpian#恐怖片$kongbupian#战争片$zhanzhengpian#剧情片$juqingpian#微电影$weidianying#记录片$m_jlp#高清$gaoqing#动漫$donghuapian#台湾$taiwanju#日本$riju#韩国$hanju#欧美$oumeiju#泰国$taiguoju#海外$haiwaiju",
-                "副标题": "class=\"title\"&&</li>",
-                "起始页": 2,
-                "倒序": 1,
-                "播放数组": "下载地址</h2>&&</ul>[不包含:网盘]",
-                "播放列表": "<ul>&&</div>[包含:magnet]"
-            },
-            "jar": "./lib/XBPQ.jar"
-        },
-       
+        
         {
             "key": "索尼资源",
             "name": "索尼┃资源",
@@ -4059,6 +4115,49 @@
                 "海外动漫"
             ]
         },
+{
+      "key": "b5",
+      "name": "鸭鸭🍁采集",
+      "type": 1,
+      "api": "https://cj2.yayazy.net/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "categories": [
+        "国产动漫",
+        "连续剧",
+        "国产剧",
+        "欧美剧",
+        "香港剧",
+        "日本剧",
+        "有声动漫",
+        "动画片",
+        "古装仙侠",
+        "都市脑洞",
+        "重生民国",
+        
+        "反转爽剧",
+        "Netflix电影",
+        "Netflix自制剧",
+        "足球",
+        "篮球",
+        "悬疑片",
+        "犯罪片",
+        "惊悚片",
+        "战争片",
+        "恐怖片",
+        "欧美动漫",
+        "日本伦理",
+        "港台三级",
+        "韩国伦理",
+        "西方伦理",
+        "写真热舞",
+        "影视解说",
+        "斯诺克",
+        "重生民国",
+        "日韩动漫"
+      ]
+    },
  {
       "key": "无尽",
       "name": "🈲 成人频道[无尽]🌈",
