@@ -14,6 +14,17 @@
   "changeable": 0
 },
 {
+            "key": "聚合短剧",
+            "name": "聚合短剧",
+            "type": 3,
+            "api": "./js/聚合短剧.js",
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "changeable": 1
+    },
+{
             "key": "py集合",
             "name": "py集合",
             "type": 4,
@@ -27,6 +38,24 @@
             }
         },
         {
+            "key": "LocalMixed",
+            "name": "本地混合源",
+            "type": 3,
+            "api": "./py/JSON本地读取.py",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 0,
+            "changeable": 1,
+            "playerType": 2
+        },
+        {
+            "key": "读取数据库",
+            "name": "读取数据库",
+            "type": 3,
+            "api": "./py/数据库.py",
+            "searchable": 1
+        },
+        {
             "key": "php在线",
             "name": "php在线",
             "type": 4,
@@ -35,6 +64,39 @@
             "quickSearch": 1,
             "filterable": 1
         },
+                 {
+            "key": "tube8",
+            "name": "tube8",
+            "type": 3,
+            "api": "./py/tube8.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
+                         {
+            "key": "果冻",
+            "name": "果冻",
+            "type": 3,
+            "api": "./py/果冻.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
+                 {
+            "key": "两个BT.py",
+            "name": "两个BT.py",
+            "type": 3,
+            "api": "./py/两个BT.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },   
                   {
             "key": "小黄书",
             "name": "小黄书",
@@ -1188,7 +1250,7 @@
             "key": "py_stripchat.py",
             "name": "py_stripchat.py",
             "type": 3,
-            "api": "./py/py_stripchat.py",
+            "api": "./py/py_stripchat (1).py",
             "searchable": 1,
             "quickSearch": 0,
             "filterable": 0,
@@ -1383,7 +1445,37 @@
         "VR视角"
       ]
 },
-
+{
+            "key": "XJCJ",
+            "name": "👖TG频道@stymei丨香蕉丨12852部片",
+            "type": 1,
+            "api": "https://www.xiangjiaozyw.com/api.php/provide/vod/?ac=list",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "categories": [
+                "欧美精品",
+                "卡通动漫",
+                "乱伦中出",
+                "传媒原创",
+                "口爆颜射",
+                "岛国女优",
+                "萝莉少女",
+                "国产直播",
+                "岛国群交",
+                "中文字幕",
+                "岛国素人",
+                "吃瓜爆料",
+                "淫娃自慰",
+                "公开漏出",
+                "户外打野",
+                "高潮喷水",
+                "AI换脸",
+                "AV解说",
+                "伦理三级",
+                "韩国直播"
+            ]
+        },
 {
                "key": "911爆料网",
                "name": "911爆料网",

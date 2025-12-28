@@ -23,9 +23,11 @@ class Spider(Spider):
         self.headers = {
             'Origin': origin,
             'Referer': f"{origin}/",
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0'
         }
-        self.stripchat_key = self.decode_key_compact()
+        self.stripchat_preferredVideoCodec = "h264" # h264、h265
+        self.stripchat_decrypt_key = self.decode_key_compact("NDUgNTEgNzUgNjUgNjUgNDcgNjggMzIgNmIgNjEgNjUgNzcgNjEgMzMgNjMgNjg=")
+        self.stripchat_auth_key = self.decode_key_compact("NGYgNmYgNmIgMzcgNzEgNzUgNjEgNjkgNGUgNjcgNjkgNzkgNzUgNjggNjEgNjk=")
         # 缓存字典
         self._hash_cache = {}
         self.create_session_with_retry()
@@ -64,7 +66,7 @@ class Spider(Spider):
         offset = limit * (int(pg) - 1)
         url = f"{self.host}/api/front/models?improveTs=false&removeShows=false&limit={limit}&offset={offset}&primaryTag={tid}&sortBy=stripRanking&rcmGrp=A&rbCnGr=true&prxCnGr=false&nic=false"
         if 'tag' in extend:
-            url += "&filterGroupTags=%5B%5B%22" + extend['tag'] + "%22%5D%5D"
+            url = f'{url}&filterGroupTags=[["{extend["tag"]}"]]'
         rsp = self.fetch(url).json()
         videos = [
             {
@@ -139,16 +141,17 @@ class Spider(Spider):
         return result
 
     def playerContent(self, flag, id, vipFlags):
-        url = f"https://edge-hls.doppiocdn.net/hls/{id}/master/{id}_auto.m3u8?playlistType=lowLatency"
-        rsp = self.fetch(url)
+        rsp = self.fetch(f"https://edge-hls.doppiocdn.net/hls/{id}/master/{id}_auto.m3u8?playlistType=lowLatency")
         lines = rsp.text.strip().split('\n')
         psch, pkey = '', ''
         url = []
+        mouflon_processed = False
         for i, line in enumerate(lines):
-            if line.startswith('#EXT-X-MOUFLON:'):
+            if line.startswith('#EXT-X-MOUFLON:') and not mouflon_processed:
                 if parts := line.split(':'):
                     if len(parts) >= 4:
                         psch, pkey = parts[2], parts[3]
+                        mouflon_processed = True
             if '#EXT-X-STREAM-INF' in line:
                 name_start = line.find('NAME="') + 6
                 name_end = line.find('"', name_start)
@@ -156,7 +159,7 @@ class Spider(Spider):
                 # URL在下一行
                 url_base = lines[i + 1]
                 # 组合最终的URL，并加上psch和pkey参数
-                full_url = f"{url_base}&psch={psch}&pkey={pkey}"
+                full_url = f"{url_base}&psch={psch}&pkey={pkey}&preferredVideoCodec={self.stripchat_preferredVideoCodec}"
                 proxy_url = f"{self.getProxyUrl()}&url={quote(full_url)}"
                 # 将画质和URL添加到列表中
                 url.extend([qn, proxy_url])
@@ -169,26 +172,29 @@ class Spider(Spider):
 
     def localProxy(self, param):
         url = unquote(param['url'])
-        data = self.fetch(url)
-        if data.status_code == 403:
-            data = self.fetch(re.sub(r'\d+p\d*\.m3u8', '160p_blurred.m3u8', url))
-        if data.status_code != 200:
+        rsp = self.fetch(url)
+        if rsp.status_code == 403:
+            rsp = self.fetch(re.sub(r'\d+p\d*\.m3u8', '160p_blurred.m3u8', url))
+        if rsp.status_code != 200:
             return [404, "text/plain", ""]
-        data = data.text
-        if "#EXT-X-MOUFLON:FILE" in data:
-            data = self.process_m3u8_content_v2(data)
+        data = rsp.text
+        if "#EXT-X-MOUFLON:URI:" in data:
+            data = self.process_m3u8(data)
         return [200, "application/vnd.apple.mpegur", data]
 
-    def process_m3u8_content_v2(self, m3u8_content):
-        lines = m3u8_content.strip().split('\n')
+    def process_m3u8(self, content):
+        lines = content.strip().split('\n')
         for i, line in enumerate(lines):
-            if (line.startswith('#EXT-X-MOUFLON:FILE:') and 'media.mp4' in lines[i + 1]):
-                encrypted_data = line.split(':', 2)[2].strip()
-                try:
-                    decrypted_data = self.decrypt(encrypted_data, self.stripchat_key)
-                except Exception as e:
-                    decrypted_data = self.decrypt(encrypted_data, "Zokee2OhPh9kugh4")
-                lines[i + 1] = lines[i + 1].replace('media.mp4', decrypted_data)
+            if (line.startswith('#EXT-X-MOUFLON:URI:') and 'media.mp4' in lines[i + 1]):
+                mouflon = line.split(':', 2)[2].strip()
+                encrypted_stripped = re.sub(r'(_part\d+)?\.mp4$', '', mouflon)
+                parts = encrypted_stripped.rsplit('_', 2)
+                encrypted = parts[-2]
+                reversed_encrypted = encrypted[::-1]
+                decrypted = self.decrypt(reversed_encrypted, self.stripchat_decrypt_key)
+                replacement = mouflon.replace(encrypted, decrypted)
+                pattern = r'https://media-hls\.doppiocdn\.\w+/b-hls-\d+/media\.mp4'
+                lines[i + 1] = re.sub(pattern, replacement, lines[i + 1])
         return '\n'.join(lines)
 
     def country_code_to_flag(self, country_code):
@@ -197,8 +203,7 @@ class Spider(Spider):
         flag_emoji = ''.join([chr(ord(c.upper()) - ord('A') + 0x1F1E6) for c in country_code])
         return flag_emoji
 
-    def decode_key_compact(self):
-        base64_str = "NTEgNzUgNjUgNjEgNmUgMzQgNjMgNjEgNjkgMzkgNjIgNmYgNGEgNjEgMzUgNjE="
+    def decode_key_compact(self, base64_str):
         decoded = base64.b64decode(base64_str).decode('utf-8')
         key_bytes = bytes(int(hex_str, 16) for hex_str in decoded.split(" "))
         return key_bytes.decode('utf-8')
