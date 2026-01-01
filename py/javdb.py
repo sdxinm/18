@@ -24,7 +24,7 @@ class Spider(Spider):
     def destroy(self):
         pass
 
-    host = "https://javdb563.com"
+    host = "https://javdb565.com"
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 15; 23113RKC6C Build/AQ3A.240912.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/140.0.7339.207 Mobile Safari/537.36',

@@ -14,7 +14,7 @@ class Spider(Spider):
         return "Rou"
 
     def init(self, extend):
-        self.home_url = 'https://rouvz3.xyz'
+        self.home_url = 'https://rouva2.xyz'
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
 

@@ -2,7 +2,7 @@
 1
 
 #随机电影
-http://www.lzo.linkpc.net/lives/随机电影.txt
+/storage/emulated/0/lz/wj/1万部电影.txt
 
 #玉兔
 http://www.lzo.linkpc.net/lives/玉兔.txt
